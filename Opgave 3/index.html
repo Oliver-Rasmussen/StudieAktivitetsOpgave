@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+    <h1>String Manipulation</h1>
+
+    <div id="stringManipulator">
+        <input v-model="Word"><button @click="MyFunction()" >Show it</button>
+
+
+        <ol>
+            <li>{{ Word }}</li>
+            <li>{{ WordUpper }}</li>
+            <li>{{ WordLower }}</li>
+        </ol>
+
+        <hr>
+        <table class="table table-striped col-6">
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>{{Word}}</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>{{WordUpper}}</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>{{WordLower}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script>
+        var myApp = new Vue({
+        el: '#stringManipulator',
+        data: {
+            Word: '',
+            WordUpper: '',
+            WordLower: ''
+        },
+        methods:{
+            MyFunction() {
+                this.WordUpper = this.Word.toUpperCase();
+                this.WordLower = this.Word.toLowerCase();
+            }
+        }
+
+        })
+    </script>
+
+</body>
+</html>
