@@ -71,6 +71,11 @@ namespace TCP_Server
                         Gem(reader, writer);
                         break;
 
+                    case "end":
+                        writer.WriteLine("Bye bye");
+                        writer.Flush();
+                        break;
+
                     default:
                         writer.WriteLine("Unknown command");
                         writer.Flush();
