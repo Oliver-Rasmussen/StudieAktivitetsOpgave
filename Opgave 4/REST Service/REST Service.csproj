@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>REST_Service</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Opgave 1">
+      <HintPath>..\..\Opgave 1\Opgave 1\bin\Debug\net5.0\Opgave 1.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
