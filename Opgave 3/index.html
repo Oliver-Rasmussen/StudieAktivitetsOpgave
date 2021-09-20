@@ -14,7 +14,7 @@
     <h1>String Manipulation</h1>
 
     <div id="stringManipulator">
-        <input v-model="Word"><button @click="MyFunction()" >Show it</button>
+        <input v-model="Input"><button @click="MyFunction()" >Show it</button>
 
 
         <ol>
@@ -47,12 +47,14 @@
         var myApp = new Vue({
         el: '#stringManipulator',
         data: {
+            Input: '',
             Word: '',
             WordUpper: '',
             WordLower: ''
         },
         methods:{
             MyFunction() {
+                this.Word = this.Input;
                 this.WordUpper = this.Word.toUpperCase();
                 this.WordLower = this.Word.toLowerCase();
             }
