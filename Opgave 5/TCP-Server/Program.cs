@@ -11,6 +11,9 @@ namespace TCP_Server
 {
     class Program
     {
+        private static StreamReader reader;
+        private static StreamWriter writer;
+
         public static List<FootballPlayer> _players = new List<FootballPlayer>
         {
             new FootballPlayer() {ID = 1, Name = "Erik Hansen", Price= 22000, ShirtNumber=13},
@@ -44,8 +47,8 @@ namespace TCP_Server
             string msg = "";
 
             NetworkStream ns = socket.GetStream();
-            StreamReader reader = new StreamReader(ns);
-            StreamWriter writer = new StreamWriter(ns);
+            reader = new StreamReader(ns);
+            writer = new StreamWriter(ns);
 
             writer.WriteLine("Write 'end' to disconnect");
             writer.Flush();
@@ -60,15 +63,15 @@ namespace TCP_Server
                 switch(msg)
                 {
                     case "hentalle":
-                        HentAlle(reader, writer);
+                        HentAlle();
                         break;
 
                     case "hent":
-                        Hent(reader, writer);
+                        Hent();
                         break;
 
                     case "gem":
-                        Gem(reader, writer);
+                        Gem();
                         break;
 
                     case "end":
@@ -87,7 +90,7 @@ namespace TCP_Server
             socket.Close();
         }
 
-        public static void HentAlle(StreamReader reader, StreamWriter writer)
+        public static void HentAlle()
         {
             Console.WriteLine("---HentAlle Request---");
 
@@ -100,7 +103,7 @@ namespace TCP_Server
             }
         }
 
-        public static void Hent(StreamReader reader, StreamWriter writer)
+        public static void Hent()
         {
             Console.WriteLine("---Hent Request---");
 
@@ -111,7 +114,7 @@ namespace TCP_Server
             writer.WriteLine(JsonSerializer.Serialize(player));
         }
 
-        public static void Gem(StreamReader reader, StreamWriter writer)
+        public static void Gem()
         {
             Console.WriteLine("---Gem Request---");
 
