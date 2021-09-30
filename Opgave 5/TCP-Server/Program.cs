@@ -98,7 +98,11 @@ namespace TCP_Server
 
             if (msg.Equals(""))
             {
-                writer.WriteLine(JsonSerializer.Serialize(_players));
+                foreach(FootballPlayer player in _players)
+                {
+                    writer.WriteLine(JsonSerializer.Serialize(player));
+                }
+                
                 writer.Flush();
             }
         }
@@ -112,6 +116,7 @@ namespace TCP_Server
             var player = _players.Find(p => p.ID == id);
 
             writer.WriteLine(JsonSerializer.Serialize(player));
+            writer.Flush();
         }
 
         public static void Gem()
